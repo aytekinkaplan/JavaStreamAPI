@@ -1,7 +1,6 @@
-package org.streamapi.example001;
+package org.streamapi.example002;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 public class Main {
 
@@ -49,7 +48,15 @@ public class Main {
                 new Person("Samuel", 25, "789 Main St", "(012) 345-6789")
         );
 
-        Stream<Person> filteredStream = people.stream().filter(person -> person.getAge() > 30);
-        filteredStream.forEach(System.out::println);
+        method(people);
+    }
+
+    private static void method(List<Person> people) {
+        System.out.println("Employees with age greater than 30:");
+        people.stream()
+                .filter(person -> person.getAge() > 30)
+                .map(Person::getName)
+                .sorted()
+                .forEach(System.out::println);
     }
 }
