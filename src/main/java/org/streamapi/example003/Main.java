@@ -1,10 +1,15 @@
 package org.streamapi.example003;
 
 public class Main {
+
     public static void main(String[] args) {
+        Vehicle vehicle = new Vehicle();
+        Ford.ford(vehicle);
 
-        Ford ford = new Ford(new Vehicle());
-        Ford.ford(ford.getVehicle());
+        // Create a Ford object with the configured Vehicle
+        Ford ford = new Ford(vehicle);
 
+        // Call Ford specific method (assuming it exists)
+        Ford.ford(vehicle);
     }
 }
